@@ -14,21 +14,37 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('Nombre')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('Correo')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+
+            <!-- Email Address -->
+            <div class="mt-4">
+                <x-label :value="__('Tipo Usuario')" />
+                <input type="radio" name="tipo_usuario" value="estudiante" id="estudiante"><label for="estudiante">Estudiante</label>
+                <input type="radio" name="tipo_usuario" value="profesor" id="profesor"><label for="profesor">Profesor</label>
+                <input type="radio" name="tipo_usuario" value="coordinador" id="coordinador"><label for="coordinador">Coordinador</label>
+            </div>
+
+            <!-- Email Address -->
+            <div class="mt-4">
+                <x-label for="codigo" :value="__('Código')" />
+
+                <x-input id="codigo" class="block mt-1 w-full" type="text" name="codigo" :value="old('codigo')" required />
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Contraseña')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -38,7 +54,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirmar Contraseña')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
@@ -47,11 +63,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('¿Ya te has registrado?') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Registrar') }}
                 </x-button>
             </div>
         </form>
