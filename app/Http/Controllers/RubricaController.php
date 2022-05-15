@@ -15,6 +15,7 @@ class RubricaController extends Controller
     public function index()
     {
         //
+        return 'hola';
     }
 
     /**
