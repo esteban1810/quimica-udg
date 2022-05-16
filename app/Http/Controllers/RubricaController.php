@@ -23,9 +23,14 @@ class RubricaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($rubrica)
     {
-        //
+        if($rubrica!=1) 
+            if($rubrica!=2)
+                // TODO: CREAR VISTA PARA ERROR 404
+                return '<h1>ERROR 404</h1>';
+
+        return view('rubricas.create',['rubrica'=>$rubrica]);
     }
 
     /**
@@ -36,7 +41,7 @@ class RubricaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'vamos';
     }
 
     /**

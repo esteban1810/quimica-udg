@@ -19,6 +19,9 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    // RUBRICAS ROUTES
+    Route::get('rubrica/{rubrica}',[RubricaController::class,'create'])->name('rubrica.create');
+
     Route::get('/dashboard',function(){return view('dashboard');})->name('dashboard');
 });
 
