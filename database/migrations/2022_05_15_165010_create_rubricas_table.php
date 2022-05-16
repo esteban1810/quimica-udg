@@ -15,6 +15,7 @@ class CreateRubricasTable extends Migration
     {
         Schema::create('rubricas', function (Blueprint $table) {
             $table->id();
+            $table->integer('rubrica');
             $table->string('apellido_paterno_evaluador')->nullable();
             $table->string('apellido_materno_evaluador')->nullable();
             $table->string('nombre_evaluador')->nullable();

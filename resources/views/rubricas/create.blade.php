@@ -27,27 +27,28 @@
     </div>
 
 
-    <form method="POST" action="https://script.google.com/macros/s/AKfycbznbpe5tjrPcOD3TeFUNHsew-4sqYAv3aaauP7ZnjySqqYsVsEhIJT115N0UxIleZaX0A/exec">
+    <form method="POST" action="{{route('rubrica.store',['rubrica'=>$rubrica])}}">
+        @csrf
         <section>
             <div class="container">
                 <h2 class="center">Datos del(a) Evaluador(a)</h2>
                 <div class="col-3">
                     <div class="campo">
                         <label for="apellido_paterno_evaluador">Apellido Paterno</label><br>
-                        <input type="text" name="apellido_paterno_evaluador" id="apellido_paterno_evaluador" placeholder="Apellido Paterno" required>
+                        <input type="text" name="apellido_paterno_evaluador" id="apellido_paterno_evaluador" placeholder="Apellido Paterno" >
                     </div>
                     <div class="campo">
                         <label for="apellido_materno_evaluador">Apellido Materno</label><br>
-                        <input type="text" name="apellido_materno_evaluador" id="apellido_materno_evaluador" placeholder="Apellido Materno" required>
+                        <input type="text" name="apellido_materno_evaluador" id="apellido_materno_evaluador" placeholder="Apellido Materno" >
                     </div>
                     <div class="campo">
                         <label for="nombre_evaluador">Nombre(s)</label><br>
-                        <input type="text" name="nombre_evaluador" id="nombre_evaluador" placeholder="Nombre(s)" required>
+                        <input type="text" name="nombre_evaluador" id="nombre_evaluador" placeholder="Nombre(s)" >
                     </div>
                 </div>
                 <div class="campo">
                     <label for="correo">Correo:</label><br>
-                    <input type="email" name="correo" id="correo" placeholder="Ingresa el correo del evaluador" required>
+                    <input type="email" name="correo" id="correo" placeholder="Ingresa el correo del evaluador" >
                 </div>
                 <div class="campo">
                     <label for="is_profesor">¿Es usted Profesor de la Universidad de Guadalajara?</label><br>
@@ -94,20 +95,20 @@
     
                   <div class="campo">
                       <label for="id_trabajo">Ingrese el ID del Trabajo a Evaluar</label><br>
-                      <input type="text" name="id_trabajo" id="id_trabajo" placeholder="ID Trabajo" onchange="detectarEO();" required>
+                      <input type="text" name="id_trabajo" id="id_trabajo" placeholder="ID Trabajo" onchange="detectarEO();" >
                   </div>
                 <div class="col-3">
                     <div class="campo">
                         <label for="apellido_paterno_estudiante">Apellido Paterno</label><br>
-                        <input type="text" name="apellido_paterno_estudiante" id="apellido_paterno_estudiante" placeholder="Apellido Paterno"  required>
+                        <input type="text" name="apellido_paterno_estudiante" id="apellido_paterno_estudiante" placeholder="Apellido Paterno"  >
                     </div>
                     <div class="campo">
                         <label for="apellido_materno_estudiante">Apellido Materno</label><br>
-                        <input type="text" name="apellido_materno_estudiante" id="apellido_materno_estudiante" placeholder="Apellido Materno" required>
+                        <input type="text" name="apellido_materno_estudiante" id="apellido_materno_estudiante" placeholder="Apellido Materno" >
                     </div>
                     <div class="campo">
                         <label for="nombre_estudiante">Nombre(s)</label><br>
-                        <input type="text" name="nombre_estudiante" id="nombre_estudiante" placeholder="Nombre(s)" required>
+                        <input type="text" name="nombre_estudiante" id="nombre_estudiante" placeholder="Nombre(s)" >
                     </div>
                 </div>
             </div>
@@ -276,7 +277,7 @@
                 <h2 class="center">Dictamen</h2>
                 <div>
                     <label for="evaluacion">Con base a cada rubro evaluado, usted considera al(a) alumno(a): </label><br>
-                    <input type="radio" name="evaluacion" id="aprobado" value="Aprobado" required><label for="aprobado">Aprobado</label><br>
+                    <input type="radio" name="evaluacion" id="aprobado" value="Aprobado" ><label for="aprobado">Aprobado</label><br>
                     <input type="radio" name="evaluacion" id="reprobado" value="Reprobado"><label for="reprobado">Reprobado</label><br>
                 </div>
                 <div class="campo">

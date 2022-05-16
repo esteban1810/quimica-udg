@@ -9,6 +9,7 @@ class Rubrica extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'rubrica',
         'apellido_paterno_evaluador',
         'apellido_materno_evaluador',
         'nombre_evaluador',

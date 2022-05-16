@@ -39,9 +39,9 @@ class RubricaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$rubrica)
     {
-        return 'vamos';
+        return Rubrica::create($request->all()+['rubrica'=>$rubrica]);
     }
 
     /**
