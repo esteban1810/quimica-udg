@@ -295,8 +295,5 @@
         <input type="submit" value="Enviar" class="btn">
       </div>
     </form>
-
-
-    <?!= include('JS'); ?>
 </body>
 </html>
