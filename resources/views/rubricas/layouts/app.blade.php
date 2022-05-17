@@ -20,5 +20,5 @@
         </p>
     </div>
 
-    @yield('content')
+    @yield('content_rubrica')
 @stop
