@@ -14,8 +14,7 @@ class RubricaController extends Controller
      */
     public function index()
     {
-        //
-        return 'hola';
+        return view('rubricas.index',['rubricas'=>Rubrica::all()]);
     }
 
     /**
@@ -41,7 +40,8 @@ class RubricaController extends Controller
      */
     public function store(Request $request,$rubrica)
     {
-        return Rubrica::create($request->all()+['rubrica'=>$rubrica]);
+        Rubrica::create($request->all()+['rubrica'=>$rubrica]);
+        return route()->redirect('rubrica.index');
     }
 
     /**
