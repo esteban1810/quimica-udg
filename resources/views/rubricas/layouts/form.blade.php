@@ -5,25 +5,39 @@
         <div class="col-3">
             <div class="campo">
                 <label for="apellido_paterno_evaluador">Apellido Paterno</label><br>
-                <input type="text" name="apellido_paterno_evaluador" id="apellido_paterno_evaluador" placeholder="Apellido Paterno" >
+                <input type="text" name="apellido_paterno_evaluador" id="apellido_paterno_evaluador" placeholder="Apellido Paterno"
+                value="{{old('apellido_paterno_evaluador') ?? $model->apellido_paterno_evaluador}}"
+                @if($accion=='show') readonly @endif>
             </div>
             <div class="campo">
                 <label for="apellido_materno_evaluador">Apellido Materno</label><br>
-                <input type="text" name="apellido_materno_evaluador" id="apellido_materno_evaluador" placeholder="Apellido Materno" >
+                <input type="text" name="apellido_materno_evaluador" id="apellido_materno_evaluador" placeholder="Apellido Materno"
+                value="{{old('apellido_materno_evaluador') ?? $model->apellido_materno_evaluador}}"
+                @if($accion=='show') readonly @endif>
             </div>
             <div class="campo">
                 <label for="nombre_evaluador">Nombre(s)</label><br>
-                <input type="text" name="nombre_evaluador" id="nombre_evaluador" placeholder="Nombre(s)" >
+                <input type="text" name="nombre_evaluador" id="nombre_evaluador" placeholder="Nombre(s)"
+                value="{{old('nombre_evaluador') ?? $model->nombre_evaluador}}"
+                @if($accion=='show') readonly @endif>
             </div>
         </div>
         <div class="campo">
             <label for="correo">Correo:</label><br>
-            <input type="email" name="correo" id="correo" placeholder="Ingresa el correo del evaluador" >
+            <input type="email" name="correo" id="correo" placeholder="Ingresa el correo del evaluador"
+            value="{{old('correo') ?? $model->correo}}"
+            @if($accion=='show') readonly @endif>
         </div>
         <div class="campo">
+            <?$isProfresor = old('is_profesor')!=null old('is_profesor') : $model->is_profesor;?>
             <label for="is_profesor">¿Es usted Profesor de la Universidad de Guadalajara?</label><br>
-            <input type="radio" name="is_profesor" value="SÍ" id="Profesor" onclick="visible('.s-3',false);limpiar_insti();" placeholder="Apellido Paterno"><label for="Profesor">Sí</label>
-            <input type="radio" name="is_profesor" value="NO" id="Alumno" onclick="visible('.s-3',true);add_req_insti();" placeholder="Apellido Paterno"><label for="Alumno">No</label>
+            <input type="radio" name="is_profesor" value="SÍ" id="Profesor" onclick="visible('.s-3',false);limpiar_insti();" placeholder="Apellido Paterno"
+            @if($isProfesor=='SÍ') checked @endif
+            @if($accion=='show') readonly @endif><label for="Profesor">Sí</label>
+            <input type="radio" name="is_profesor" value="NO" id="Alumno" onclick="visible('.s-3',true);add_req_insti();" placeholder="Apellido Paterno"><label for="Alumno"
+            @if($isProfesor=='NO') checked @endif
+            @if($accion=='show') readonly @endif
+            >No</label>
         </div>
     </div>
 

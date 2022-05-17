@@ -2,6 +2,8 @@
 
 @section('content')
     <h1>RUBRICAS - INDEX</h1>
+    <a href="{{route('rubrica.create',['rubrica'=>1])}}">Llenar nueva rubrica 1</a>
+    <a href="{{route('rubrica.create',['rubrica'=>2])}}">Llenar nueva rubrica 2</a>
     <table>
         <tr>
           <th>Rúbrica</th>
@@ -21,8 +23,8 @@
                     <td>{{$rubrica->evaluacion}}</td>
                     <td>{{$rubrica->created_at}}</td>
                     <td>
-                        <a href="#">Mostrar</a>
-                        <a href="#">Editar</a>
+                        <a href="{{route('rubrica.show',['model'=>$rubrica->id])}}">Mostrar</a>
+                        <a href="{{route('rubrica.edit',['model'=>$rubrica->id])}}">Editar</a>
                         <form action="#" method="post">
                             <input type="submit" value="Eliminar">
                         </form>

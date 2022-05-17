@@ -29,7 +29,7 @@ class RubricaController extends Controller
                 // TODO: CREAR VISTA PARA ERROR 404
                 return '<h1>ERROR 404</h1>';
 
-        return view('rubricas.create',['rubrica'=>$rubrica]);
+        return view('rubricas.create',['rubrica'=>$rubrica,'model'=>new Rubrica()]);
     }
 
     /**
@@ -40,6 +40,16 @@ class RubricaController extends Controller
      */
     public function store(Request $request,$rubrica)
     {
+        $campos = [
+            'correo'=>'required',
+        ];
+
+        $mensaje = [
+            'required'=>'El :attribute es requerido',
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
         Rubrica::create($request->all()+['rubrica'=>$rubrica]);
         return route()->redirect('rubrica.index');
     }
@@ -50,9 +60,10 @@ class RubricaController extends Controller
      * @param  \App\Models\Rubrica  $rubrica
      * @return \Illuminate\Http\Response
      */
-    public function show(Rubrica $rubrica)
+    public function show($rubrica)
     {
-        //
+        $rubrica = Rubrica::findOrFail($rubrica);
+        return view('rubricas.show',['rubrica'=>$rubrica->rubrica,'model'=>$rubrica]);
     }
 
     /**
@@ -63,7 +74,7 @@ class RubricaController extends Controller
      */
     public function edit(Rubrica $rubrica)
     {
-        //
+        return 'edit';
     }
 
     /**

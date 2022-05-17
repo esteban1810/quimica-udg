@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function () {
     // RUBRICAS ROUTES
     Route::get('rubricas',[RubricaController::class,'index'])->name('rubrica.index');
+    Route::get('rubrica/{model}/show',[RubricaController::class,'show'])->name('rubrica.show');
+    Route::get('rubrica/{model}/edit',[RubricaController::class,'edit'])->name('rubrica.edit');
     Route::get('rubrica/{rubrica}',[RubricaController::class,'create'])->name('rubrica.create');
     Route::post('rubrica/{rubrica}',[RubricaController::class,'store'])->name('rubrica.store');
 
