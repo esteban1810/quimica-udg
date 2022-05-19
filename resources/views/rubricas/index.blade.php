@@ -22,7 +22,7 @@
                     <td>{{$rubrica->apellido_paterno_estudiante.' '.$rubrica->apellido_paterno_estudiante.' '.$rubrica->nombre_estudiante}}</td>
                     <td>{{$rubrica->evaluacion}}</td>
                     <td>{{$rubrica->created_at}}</td>
-                    <td>
+                    <td class="flex">
                         <a href="{{route('rubrica.show',['model'=>$rubrica->id])}}">Mostrar</a>
                         <a href="{{route('rubrica.edit',['model'=>$rubrica->id])}}">Editar</a>
                         <form action="#" method="post">
