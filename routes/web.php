@@ -24,7 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('rubrica/{model}/show',[RubricaController::class,'show'])->name('rubrica.show');
     Route::get('rubrica/{model}/edit',[RubricaController::class,'edit'])->name('rubrica.edit');
     Route::get('rubrica/{rubrica}',[RubricaController::class,'create'])->name('rubrica.create');
+    Route::put('rubrica/{rubrica}',[RubricaController::class,'update'])->name('rubrica.update');
     Route::post('rubrica/{rubrica}',[RubricaController::class,'store'])->name('rubrica.store');
+    Route::delete('rubrica/{rubrica}',[RubricaController::class,'destroy'])->name('rubrica.destroy');
 
     Route::get('/dashboard',function(){return view('dashboard');})->name('dashboard');
 });

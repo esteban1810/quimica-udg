@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <a href="{{route('rubrica.index')}}">Mostrar Listado</a>
     <nav>
         <div class="container">
             <h1>Rubrica E{{$rubrica}}</h1>

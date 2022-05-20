@@ -25,7 +25,9 @@
                     <td class="flex">
                         <a href="{{route('rubrica.show',['model'=>$rubrica->id])}}">Mostrar</a>
                         <a href="{{route('rubrica.edit',['model'=>$rubrica->id])}}">Editar</a>
-                        <form action="#" method="post">
+                        <form action="{{route('rubrica.destroy',['rubrica'=>$rubrica->id])}}" method="post">
+                            @csrf
+                            @method('DELETE')
                             <input type="submit" value="Eliminar">
                         </form>
                     </td>

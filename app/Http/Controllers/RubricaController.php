@@ -29,7 +29,7 @@ class RubricaController extends Controller
                 // TODO: CREAR VISTA PARA ERROR 404
                 return '<h1>ERROR 404</h1>';
 
-        return view('rubricas.create',['rubrica'=>$rubrica,'model'=>new Rubrica()]);
+        return view('rubricas.create',['rubrica'=>$rubrica,'modelRubrica'=>new Rubrica()]);
     }
 
     /**
@@ -51,7 +51,7 @@ class RubricaController extends Controller
         $this->validate($request,$campos,$mensaje);
 
         Rubrica::create($request->all()+['rubrica'=>$rubrica]);
-        return route()->redirect('rubrica.index');
+        return redirect()->route('rubrica.index');
     }
 
     /**
@@ -60,10 +60,10 @@ class RubricaController extends Controller
      * @param  \App\Models\Rubrica  $rubrica
      * @return \Illuminate\Http\Response
      */
-    public function show($rubrica)
+    public function show($modelRubricaID)
     {
-        $rubrica = Rubrica::findOrFail($rubrica);
-        return view('rubricas.show',['rubrica'=>$rubrica->rubrica,'model'=>$rubrica]);
+        $modelRubrica = Rubrica::findOrFail($modelRubricaID);
+        return view('rubricas.show',['rubrica'=>$modelRubrica->rubrica,'modelRubrica'=>$modelRubrica]);
     }
 
     /**
@@ -72,9 +72,10 @@ class RubricaController extends Controller
      * @param  \App\Models\Rubrica  $rubrica
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rubrica $rubrica)
+    public function edit($modelRubricaID)
     {
-        return 'edit';
+        $modelRubrica = Rubrica::findOrFail($modelRubricaID);
+        return view('rubricas.edit',['rubrica'=>$modelRubrica->rubrica,'modelRubrica'=>$modelRubrica]);
     }
 
     /**
@@ -84,9 +85,10 @@ class RubricaController extends Controller
      * @param  \App\Models\Rubrica  $rubrica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rubrica $rubrica)
+    public function update(Request $request, $modelRubricaID)
     {
-        //
+        Rubrica::findOrFail($modelRubricaID)->update($request->all());
+        return redirect()->route('rubrica.index');
     }
 
     /**
@@ -95,8 +97,11 @@ class RubricaController extends Controller
      * @param  \App\Models\Rubrica  $rubrica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rubrica $rubrica)
+    public function destroy($rubrica)
     {
-        //
+        
+        $rubrica = Rubrica::findOrFail($rubrica);
+        $rubrica->delete();
+        return redirect()->route('rubrica.index');
     }
 }
