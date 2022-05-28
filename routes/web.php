@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RubricaController;
+use App\Http\Controllers\FormularioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use App\Http\Controllers\RubricaController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('formulario',FormularioController::class);
 
 Route::group(['middleware' => 'auth'], function () {
     // RUBRICAS ROUTES
