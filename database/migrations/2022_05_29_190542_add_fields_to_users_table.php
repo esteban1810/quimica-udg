@@ -17,7 +17,7 @@ class AddFieldsToUsersTable extends Migration
             $table->string('apellido_paterno')->nullable()->after('name');
             $table->string('apellido_materno')->nullable()->after('apellido_paterno');
             $table->string('institucion')->default('Universidad De Guadalajara')->after('tipo_usuario');
-            $table->string('area')->default('nullable')->after('institucion');
+            $table->string('area')->nullable()->after('institucion');
 
 
         });
