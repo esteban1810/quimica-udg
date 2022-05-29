@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function () {
 Route::resource('formulario',FormularioController::class);
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard',function(){return view('dashboard');})->name('dashboard');
+
+    
     // RUBRICAS ROUTES
     Route::get('rubricas',[RubricaController::class,'index'])->name('rubrica.index');
     Route::get('rubrica/{model}/show',[RubricaController::class,'show'])->name('rubrica.show');
@@ -31,7 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('rubrica/{rubrica}',[RubricaController::class,'store'])->name('rubrica.store');
     Route::delete('rubrica/{rubrica}',[RubricaController::class,'destroy'])->name('rubrica.destroy');
 
-    Route::get('/dashboard',function(){return view('dashboard');})->name('dashboard');
+
+    Route::resource('users',UserController::class);
 });
 
 require __DIR__.'/auth.php';
