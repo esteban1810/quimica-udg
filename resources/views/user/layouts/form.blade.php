@@ -37,7 +37,7 @@
                 <option value="estudante" 
                 @if ($tipoUsuario=='estudiante') selected @endif>Estudiante</option>
                 <option value="administrador" 
-                @if ($tipoUsuario=='administrador') selected @endif>Administrador</option>
+                @if ($tipoUsuario=='profesor') selected @endif>Profesor</option>
                 <option value="coordinador"
                 @if ($tipoUsuario=='coordinador') selected @endif>Coordinador</option>
             </select>
@@ -79,7 +79,7 @@
     <div class="campo">
         <label for="password">Contrasena</label><br>
         <input type="text" name="password" id="password" placeholder="Contrasena"
-        value="{{old('password') ?? $model->password}}"
+        @if ($accion!='edit') value="{{old('password') ?? $model->password}}" @endif
         @if($accion=='show') readonly @endif>
     </div>
     <div class="campo">

@@ -61,7 +61,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('user.edit',['model'=>$user]);
     }
 
     /**
@@ -73,7 +74,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $request['password'] = Hash::make($request->password);
+        $user->update($request->all());
+        return redirect()->route('users.index');
     }
 
     /**
@@ -84,6 +88,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect()->route('users.index');
     }
 }
