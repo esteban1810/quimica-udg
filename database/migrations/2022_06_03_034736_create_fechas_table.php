@@ -20,7 +20,9 @@ class CreateFechasTable extends Migration
             $table->string('cuerpo_fecha')->nullable();
             $table->string('asunto_fecha')->nullable();
             $table->integer('mostrar_fecha_vencida')->nullable();
-            $table->string('jerarquia_mostrar')->nullable();
+            $table->string('jerarquia_mostrar1')->nullable();
+            $table->string('jerarquia_mostrar2')->nullable();
+            $table->string('jerarquia_mostrar3')->nullable();
             $table->timestamps();
         });
     }

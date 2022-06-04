@@ -7,6 +7,7 @@ Mostrar las listas de las fechas
             <th>Fecha</th>
             <th>Titulo</th>
             <th>Cuerpo</th>
+            <th>Asunto</th>
             <th>Mostrar</th>
             <th>Se muestra a</th>
             <th>Acciones</th>
@@ -21,7 +22,7 @@ Mostrar las listas de las fechas
             <td>{{ $fecha->cuerpo_fecha}}</td>
             <td>{{ $fecha->asunto_fecha}}</td>
             <td>{{ $fecha->mostrar_fecha_vencida}}</td>
-            <td>{{ $fecha->jerarquia_mostrar}}</td>
+            <td>{{ $fecha->jerarquia_mostrar1.'-'.$fecha->jerarquia_mostrar2.'-'.$fecha->jerarquia_mostrar3}}</td>
             <td>
                 
                 <a href="{{url('/fechas/'.$fecha->id.'/edit')}}">Editar</a>

@@ -43,7 +43,9 @@ class FechasController extends Controller
             'cuerpo_fecha'=>'required|string|max:50',
             'asunto_fecha'=>'required|string|max:50',
             'mostrar_fecha_vencida'=>'required|int|max:1',
-            'jerarquia_mostrar'=>'required|string|max:50'
+            'jerarquia_mostrar1'=>'string|max:20',
+            'jerarquia_mostrar2'=>'string|max:20',
+            'jerarquia_mostrar3'=>'string|max:20'
         ];
 
         $mensaje = [
@@ -95,7 +97,9 @@ class FechasController extends Controller
             'cuerpo_fecha'=>'required|string|max:50',
             'asunto_fecha'=>'required|string|max:50',
             'mostrar_fecha_vencida'=>'required|int|max:1',
-            'jerarquia_mostrar'=>'required|string|max:50'
+            'jerarquia_mostrar1'=>'string|max:20',
+            'jerarquia_mostrar2'=>'string|max:20',
+            'jerarquia_mostrar3'=>'string|max:20'
         ];
 
         $mensaje = [

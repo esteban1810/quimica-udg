@@ -32,9 +32,9 @@ formulario de fechas
 </label>
 <br>
 <label for="jerarquia_mostrar">Mostrar a:
-    <input type="radio" name="jerarquia_mostrar" id="jerarquia_mostrar" value="estudiante" {{isset($fechas->jerarquia_mostrar)&&$fechas->jerarquia_mostrar=='estudiante'?'checked':old('jerarquia_mostrar')}}>Estudiante
-    <input type="radio" name="jerarquia_mostrar" id="jerarquia_mostrar" value="profesor" {{isset($fechas->jerarquia_mostrar)&&$fechas->jerarquia_mostrar=='profesor'?'checked':old('jerarquia_mostrar')}}>Profesor
-    <input type="radio" name="jerarquia_mostrar" id="jerarquia_mostrar" value="coordinador" {{isset($fechas->jerarquia_mostrar)&&$fechas->jerarquia_mostrar=='coordinador'?'checked':old('jerarquia_mostrar')}}>Cordinador
+    <input type="radio" name="jerarquia_mostrar1" id="jerarquia_mostrar1" value="estudiante" {{isset($fechas->jerarquia_mostrar1)&&$fechas->jerarquia_mostrar1=='estudiante'?'checked':old('jerarquia_mostrar')}}>Estudiante
+    <input type="radio" name="jerarquia_mostrar2" id="jerarquia_mostrar2" value="profesor" {{isset($fechas->jerarquia_mostrar2)&&$fechas->jerarquia_mostrar2=='profesor'?'checked':old('jerarquia_mostrar')}}>Profesor
+    <input type="radio" name="jerarquia_mostrar3" id="jerarquia_mostrar3" value="coordinador" {{isset($fechas->jerarquia_mostrar3)&&$fechas->jerarquia_mostrar3=='coordinador'?'checked':old('jerarquia_mostrar')}}>Cordinador
 </label>
 <br>
 <input type="submit" value="Enviar datos">
