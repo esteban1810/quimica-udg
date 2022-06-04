@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\FechasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::get('/', function () {
 });
 
 Route::resource('formulario',FormularioController::class);
+Route::resource('fechas',FechasController::class);
 
 Route::group(['middleware' => 'auth'], function () {
     // RUBRICAS ROUTES
