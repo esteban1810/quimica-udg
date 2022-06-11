@@ -5,6 +5,7 @@ use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FechasController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::resource('users',UserController::class);
+
+    Route::get('/send-Email', [MailController::class, 'sendEmail'])->name('sen-Email');
 });
 
 require __DIR__.'/auth.php';
