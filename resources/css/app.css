@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* GENERAL */
+.center{
+    @apply flex justify-center
+}
+/* FIN GENERAL */
+
+/* HOMESCREEN */
+.vineta {
+    @apply bg-vineta rounded-full min-w-[1rem] h-4 block mr-1
+}
+/* FIN HOMESCREEN */
