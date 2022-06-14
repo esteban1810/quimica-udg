@@ -1,4 +1,4 @@
-<nav class="h-[10vh] flex justify-between items-center px-4 py-2">
+<nav class="h-[12vh] flex justify-between items-center px-4 py-2">
     <div class="h-full flex items-center">
         <div class="h-full">
             <img class="h-full object-contain" src="{{asset('img/logo.png')}}" alt="">
