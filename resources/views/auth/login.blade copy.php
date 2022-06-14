@@ -1,57 +1,4 @@
-
-@extends('layouts.app')
-
-@section('content')
-<div class="h-[87vh] w-full bg-background flex justify-center items-center">
-    <div class="w-[25rem] bg-white rounded-3xl p-8 flex flex-col lg:flex-row justify-center items-center">
-        
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-
-            <!-- Email Address -->
-            <div>
-                <label for="email">Correo:</label><br>
-                <input
-                    class="rounded-lg w-full"
-                    type="email" name="email" id="email" value="{{old('email')}}" required autofocus>
-            </div>
-
-            <!-- Password -->
-            <div class="mt-2">
-                <label for="password">Contraseña:</label>
-                <input id="password"
-                                class="rounded-lg w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            {{-- Boton Aceptar --}}
-            <button class="w-full mt-6 p-2 bg-primary text-white font-extrabold rounded-lg">
-                {{ __('ACEPTAR') }}
-            </button>
-
-            <div
-                class="flex flex-col mt-4 items-end text-[1.1rem]">
-                @if (Route::has('password.request'))
-                    <a class="hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Olvidé mi contraseña') }}
-                    </a>
-                @endif
-                <a 
-                    class="mt-1"
-                    href="#">Deseo Registrarme</a>
-            </div>
-
-        </form>
-    </div>
-</div>
-@endsection
-
-
-
-{{-- <x-guest-layout>
+<x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -106,4 +53,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout> --}}
+</x-guest-layout>
