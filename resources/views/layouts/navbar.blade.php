@@ -15,6 +15,8 @@
     </div>
 
     <div class="h-5/6 hidden md:inline-block">
-        <img class="h-full object-contain" src="{{asset('img/user-icon.png')}}" alt="">
+        <a href="{{route('login')}}">
+            <img class="h-full object-contain" src="{{asset('img/user-icon.png')}}" alt="">
+        </a>
     </div>
 </nav>
