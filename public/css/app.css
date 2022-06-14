@@ -1070,6 +1070,9 @@ select {
 .pt-8 {
   padding-top: 2rem;
 }
+.text-left {
+  text-align: left;
+}
 .text-center {
   text-align: center;
 }
@@ -1482,6 +1485,10 @@ select {
     margin-left: 0px;
   }
 
+  .md\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
   .md\:inline-block {
     display: inline-block;
   }
@@ -1508,6 +1515,10 @@ select {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
   }
 }
 @media (min-width: 1024px) {
