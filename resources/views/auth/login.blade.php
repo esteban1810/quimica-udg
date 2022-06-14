@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="h-[87vh] w-full bg-background flex justify-center items-center">
+<div class="h-[88vh] w-full bg-background flex justify-center items-center">
     <div class="w-[25rem] bg-white rounded-3xl p-8 flex flex-col lg:flex-row justify-center items-center">
         
         <form method="POST" action="{{ route('login') }}">
@@ -28,7 +28,7 @@
             </div>
 
             {{-- Boton Aceptar --}}
-            <button class="w-full mt-6 p-2 bg-primary text-white font-extrabold rounded-lg">
+            <button class="w-full mt-6 p-2 bg-primary hover:bg-green-900 text-white font-extrabold rounded-lg">
                 {{ __('ACEPTAR') }}
             </button>
 
@@ -41,7 +41,7 @@
                 @endif
                 <a 
                     class="mt-1"
-                    href="#">Deseo Registrarme</a>
+                    href="{{route('register')}}">Deseo Registrarme</a>
             </div>
 
         </form>

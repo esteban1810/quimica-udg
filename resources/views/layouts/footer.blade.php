@@ -13,7 +13,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="w-[10rem] md:w-3/12">
+        <div class="w-[10rem] md:w-3/12 ">
             <img class="w-full" src="{{asset('img/logo.png')}}">
         </div>
     </div>
