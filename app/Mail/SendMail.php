@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $subject = "Información proyecto modular";
     /**
      * Create a new message instance.
      *
@@ -28,6 +28,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Prueba')->view('email.index');
+        return $this->view('email.index');
     }
 }

@@ -6,7 +6,7 @@ use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FechasController;
 use App\Http\Controllers\MailController;
-
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +41,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('users',UserController::class);
 
-    Route::get('/send-Email', [MailController::class, 'sendEmail'])->name('sen-Email');
+    Route::get('/send-Email', function() {
+        $correo = new MailController;
+        Mail::to('ediblebog@gmail.com')->send($correo);
+        return "Correo enviado";
+    });
 });
 
 require __DIR__.'/auth.php';
