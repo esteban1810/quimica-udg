@@ -15,7 +15,11 @@
     </div>
 
     <div class="h-5/6 hidden md:inline-block">
-        <a href="{{route('login')}}">
+        @if (Auth::user())
+            <a href="{{route('login')}}">
+        @else
+            <a href="{{route('logout')}}">
+        @endif
             <img class="h-full object-contain" src="{{asset('img/user-icon.png')}}" alt="">
         </a>
     </div>

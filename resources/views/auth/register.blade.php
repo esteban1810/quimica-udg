@@ -95,11 +95,11 @@
 
             <!-- Área De Investigación -->
             <div class="mt-4 text-normal md:px-3 w-full">
-                <label for="area_investigacion">Área de investigación</label><br>
+                <label for="area">Área de investigación</label><br>
                 <input
                     placeholder="Ingresa Tu Area De Investigación"
                     class="rounded-lg w-full border-solid border-2"
-                    type="text" name="area_investigacion" id="area_investigacion" value="{{old('area_investigacion')}}" required autofocus>
+                    type="text" name="area" id="area" value="{{old('area')}}" required autofocus>
             </div>
 
             <!-- Password -->
