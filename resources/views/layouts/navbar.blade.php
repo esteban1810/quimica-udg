@@ -14,13 +14,25 @@
         <img class="h-full object-contain" src="{{asset('img/menu-bar.png')}}" alt="">
     </div>
 
+
+                        
+
     <div class="h-5/6 hidden md:inline-block">
+
         @if (Auth::user())
-            <a href="{{route('login')}}">
+            <!-- Authentication -->
+            <form class="h-full object-contain" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    <img class="h-full object-contain" src="{{asset('img/user-icon.png')}}" alt="">
+                </a>
+            </form>
         @else
-            <a href="{{route('logout')}}">
+            <a href="{{route('login')}}">
+                <img class="h-full object-contain" src="{{asset('img/user-icon.png')}}" alt="">
+            </a> 
         @endif
-            <img class="h-full object-contain" src="{{asset('img/user-icon.png')}}" alt="">
-        </a>
     </div>
 </nav>

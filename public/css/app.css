@@ -662,14 +662,6 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-.-mx-3 {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-}
-.mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -745,6 +737,9 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-11 {
+  height: 2.75rem;
+}
 .h-\[88vh\] {
   height: 88vh;
 }
@@ -775,20 +770,11 @@ select {
 .h-8 {
   height: 2rem;
 }
-.h-auto {
-  height: auto;
+.h-\[max\(88rem\2c 20rem\)\] {
+  height: max(88rem,20rem);
 }
-.h-2 {
-  height: 0.5rem;
-}
-.h-3 {
-  height: 0.75rem;
-}
-.h-12 {
-  height: 3rem;
-}
-.h-11 {
-  height: 2.75rem;
+.h-\[max\(88vh\2c auto\)\] {
+  height: max(88vh,auto);
 }
 .min-h-screen {
   min-height: 100vh;
@@ -802,20 +788,23 @@ select {
 .w-full {
   width: 100%;
 }
-.w-\[25rem\] {
-  width: 25rem;
+.w-\[95\%\] {
+  width: 95%;
+}
+.w-6 {
+  width: 1.5rem;
 }
 .w-48 {
   width: 12rem;
+}
+.w-\[25rem\] {
+  width: 25rem;
 }
 .w-auto {
   width: auto;
 }
 .w-4 {
   width: 1rem;
-}
-.w-6 {
-  width: 1.5rem;
 }
 .w-\[90\%\] {
   width: 90%;
@@ -829,11 +818,8 @@ select {
 .w-\[10rem\] {
   width: 10rem;
 }
-.w-\[95\%\] {
-  width: 95%;
-}
-.w-1\/2 {
-  width: 50%;
+.w-\[max\(25vw\2c 12px\)\] {
+  width: max(25vw,12px);
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1040,6 +1026,10 @@ select {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1055,14 +1045,6 @@ select {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -1505,12 +1487,12 @@ select {
     display: inline-block;
   }
 
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:hidden {
     display: none;
+  }
+
+  .md\:w-\[max\(40rem\2c 50\%\)\] {
+    width: max(40rem,50%);
   }
 
   .md\:w-1\/2 {
@@ -1527,18 +1509,6 @@ select {
 
   .md\:w-3\/12 {
     width: 25%;
-  }
-
-  .md\:w-\[80\%\] {
-    width: 80%;
-  }
-
-  .md\:w-\[70\%\] {
-    width: 70%;
-  }
-
-  .md\:w-\[50\%\] {
-    width: 50%;
   }
 
   .md\:flex-row {
