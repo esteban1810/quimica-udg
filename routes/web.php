@@ -21,8 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('formulario',FormularioController::class);
-Route::resource('fechas',FechasController::class);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard',function(){return view('dashboard');})->name('dashboard');
@@ -39,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::resource('users',UserController::class);
+    Route::resource('formulario',FormularioController::class);
+    Route::resource('fechas',FechasController::class);
 });
 
 require __DIR__.'/auth.php';

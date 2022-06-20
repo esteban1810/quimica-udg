@@ -776,6 +776,15 @@ select {
 .h-\[max\(88vh\2c auto\)\] {
   height: max(88vh,auto);
 }
+.h-\[max\(20vh\2c 50vh\)\] {
+  height: max(20vh,50vh);
+}
+.h-\[max\(88vh\2c 50vh\)\] {
+  height: max(88vh,50vh);
+}
+.h-\[max\(88vh\2c 200vh\)\] {
+  height: max(88vh,200vh);
+}
 .min-h-screen {
   min-height: 100vh;
 }
