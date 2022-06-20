@@ -9,6 +9,9 @@ module.exports = {
 
     theme: {
         extend: {
+            fontSize: {
+                'normal':'1.1rem'
+            },
             colors: {
                 'primary':'#006732',
                 'background':'#ededed',
