@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @stack('css')
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -22,5 +23,7 @@
         @yield('content')
 
         @include('layouts.footer')
+
+        @stack('js')
     </body>
 </html>

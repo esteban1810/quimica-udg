@@ -1,88 +1,44 @@
-@if (Session::has('mensaje'))
-{{Session::get('mensaje')}}
-@endif
-<a href="{{url('formulario/create')}}">Añadir nuevo registro</a>
-<table>
-    <thead >
-        <tr>
-            <th>#</th>
-            <th>Correo alumno</th>
-            <th>Apellido paterno alumno</th>
-            <th>Apellido materno alumno</th>
-            <th>Nombre alumno</th>
-            <th>Codigo alumno</th>
-            <th>Genero alumno</th>
-            <th>Celular alumno</th>
-            <th>Telegram alumno</th>
-            <th>Semestre alumno</th>
-            <th>PM a evaluar</th>
-            <th>Titulo proyecto alumno</th>
-            <th>Apellido paterno dic</th>
-            <th>Apellido materno dic</th>
-            <th>Nombre dic</th>
-            <th>Correo dic</th>
-            <th>Area quimica trabajo</th>
-            <th>Tipo trabajo</th>
-            <th>Tipo modalidad</th>
-            <th>Tipo congreso</th>
-            <th>Recibio beca</th>
-            <th>Estancia beca</th>
-            <th>Modalidad titulacion</th>
-            <th>Documento entregado</th>
-            <th>Caso no tener director</th>
-            <th>Documento final PDF</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach( $formularios as $formulario)
-        <tr>
-            <td>{{$formulario->id}}</td>
-            <td>{{$formulario->CorreoAlumno}}</td>
-            <td>{{$formulario->ApellidoPaternoAlumno}}</td>
-            <td>{{$formulario->ApellidoMaternoAlumno}}</td>
-            <td>{{$formulario->NombreAlumno}}</td>
-            <td>{{$formulario->CodigoAlumno}}</td>
-            <td>{{$formulario->GeneroAlumno}}</td>
-            <td>{{$formulario->CelularAlumno}}</td>
-            <td>{{$formulario->TelegramAlumno}}</td>
-            <td>{{$formulario->SemestreAlumno}}</td>
-            <td>{{$formulario->PMaEvaluar}}</td>
-            <td>{{$formulario->TituloTrabajo}}</td>
-            <td>{{$formulario->ApellidoPaternoDirector}}</td>
-            <td>{{$formulario->ApellidoMaternoDirector}}</td>
-            <td>{{$formulario->NombreDirector}}</td>
-            <td>{{$formulario->CorreoDirector}}</td>
-            <td>{{$formulario->AreaQuimicaTrabajo}}</td>
-            <td>{{$formulario->TipoTrabajo}}</td>
-            <td>{{$formulario->TipoModalidad}}</td>
-            <td>{{$formulario->TipoCongreso}}</td>
-            <td>{{$formulario->RecibioBeca}}</td>
-            <td>{{$formulario->EstanciaBeca}}</td>
-            <td>{{$formulario->ModalidadTitulacion}}</td>
-            <td>{{$formulario->DocumentoEntregaras}}</td>
-            <td>{{$formulario->CasoNoDirector}}</td>
-            <!-- <td>{{$formulario->DocumentoPDFProyecto}}</td> -->
-            <td><a href="{{asset('storage').'/'.$formulario->DocumentoPDFProyecto}}">Documento PDF</a></td>
-            <td>
-                <a href="{{url('/formulario/'.$formulario->id.'/edit')}}">
-                    Editar
-                </a>
-                |
-                <form action="{{ url('/formulario/'.$formulario->id) }}" method="post">
-                @csrf
-                <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
-                {{method_field('DELETE')}}
-                </form>
+@extends('layouts.app')
 
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>#</th>
-        </tr>
-    </tfoot>
-</table>
-{!!$formularios->links()!!}
+@section('content')
+    @push('css'){{-- Estilos necesarios para el datatable --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.bootstrap5.min.css">
+    @endpush
+
+    
+
+
+    <div class=" w-full h-[88vh] bg-background py-8">
+        <div class="w-[max(80rem,90%)] rounded-3xl p-8 bg-white m-auto">
+            <h2>Proyectos Modulares</h2>
+            <table id="example" class="table table-striped"  style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Alumno</th>
+                        <th>Código</th>
+                        <th>Maestro</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    @push('js')
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable( {
+                    select: true
+                } );
+            } );
+        </script>
+    @endpush
+@endsection

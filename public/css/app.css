@@ -770,21 +770,6 @@ select {
 .h-8 {
   height: 2rem;
 }
-.h-\[max\(88rem\2c 20rem\)\] {
-  height: max(88rem,20rem);
-}
-.h-\[max\(88vh\2c auto\)\] {
-  height: max(88vh,auto);
-}
-.h-\[max\(20vh\2c 50vh\)\] {
-  height: max(20vh,50vh);
-}
-.h-\[max\(88vh\2c 50vh\)\] {
-  height: max(88vh,50vh);
-}
-.h-\[max\(88vh\2c 200vh\)\] {
-  height: max(88vh,200vh);
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -808,6 +793,9 @@ select {
 }
 .w-\[25rem\] {
   width: 25rem;
+}
+.w-\[max\(80rem\2c 90\%\)\] {
+  width: max(80rem,90%);
 }
 .w-auto {
   width: auto;
@@ -1106,10 +1094,6 @@ select {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1293,6 +1277,13 @@ select {
   background-color: rgb(255 164 32 / var(--tw-bg-opacity));
 }
 /* FIN HOMESCREEN */
+/* CONFLICTOS CON BOOTSTRAP */
+.h5-nav {
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+  font-weight: 700 !important;
+}
+/* FIN CONFLICTOS CON BOOTSTRAP */
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
