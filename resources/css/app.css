@@ -6,6 +6,11 @@
 .center{
     @apply flex justify-center
 }
+
+.rounded-input{
+    @apply rounded-lg w-full border-solid border-2
+}
+
 /* FIN GENERAL */
 
 /* HOMESCREEN */

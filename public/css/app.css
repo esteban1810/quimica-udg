@@ -683,6 +683,9 @@ select {
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mt-8 {
+  margin-top: 2rem;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -701,9 +704,6 @@ select {
 .ml-2 {
   margin-left: 0.5rem;
 }
-.mt-8 {
-  margin-top: 2rem;
-}
 .ml-12 {
   margin-left: 3rem;
 }
@@ -713,8 +713,17 @@ select {
 .ml-6 {
   margin-left: 1.5rem;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .block {
   display: block;
+}
+.inline-block {
+  display: inline-block;
 }
 .flex {
   display: flex;
@@ -791,6 +800,9 @@ select {
 .w-48 {
   width: 12rem;
 }
+.w-\[min\(50rem\2c 90\%\)\] {
+  width: min(50rem,90%);
+}
 .w-\[25rem\] {
   width: 25rem;
 }
@@ -817,6 +829,9 @@ select {
 }
 .w-\[max\(25vw\2c 12px\)\] {
   width: max(25vw,12px);
+}
+.w-1\/2 {
+  width: 50%;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -864,8 +879,15 @@ select {
 .list-disc {
   list-style-type: disc;
 }
+.columns-2 {
+  -moz-columns: 2;
+       columns: 2;
+}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -1095,16 +1117,16 @@ select {
 .text-normal {
   font-size: 1.1rem;
 }
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-\[1\.1rem\] {
   font-size: 1.1rem;
 }
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .text-lg {
   font-size: 1.125rem;
@@ -1272,6 +1294,12 @@ select {
 .center {
   display: flex;
   justify-content: center;
+}
+.rounded-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  border-style: solid;
 }
 /* FIN GENERAL */
 /* HOMESCREEN */
@@ -1511,8 +1539,16 @@ span.tailwind {
     margin-left: 0px;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:inline-block {
     display: inline-block;
+  }
+
+  .md\:flex {
+    display: flex;
   }
 
   .md\:hidden {
@@ -1537,6 +1573,11 @@ span.tailwind {
 
   .md\:w-3\/12 {
     width: 25%;
+  }
+
+  .md\:columns-2 {
+    -moz-columns: 2;
+         columns: 2;
   }
 
   .md\:flex-row {
