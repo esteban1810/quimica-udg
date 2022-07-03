@@ -13,3 +13,18 @@
     @apply bg-vineta rounded-full min-w-[1rem] h-4 block mr-1
 }
 /* FIN HOMESCREEN */
+
+/* Problemas con bootstrap cuando se utilizan los datatables */
+.link {
+    @apply p-2 text-white font-extrabold rounded-lg inline-block no-underline !important
+}
+
+h5.tailwind {
+    @apply font-bold text-3xl text-primary !important
+}
+
+
+span.tailwind{
+    @apply text-primary !important
+}
+/* fin Problemas con bootstrap cuando se utilizan los datatables */

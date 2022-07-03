@@ -991,6 +991,14 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
@@ -1277,13 +1285,29 @@ select {
   background-color: rgb(255 164 32 / var(--tw-bg-opacity));
 }
 /* FIN HOMESCREEN */
-/* CONFLICTOS CON BOOTSTRAP */
-.h5-nav {
+/* Problemas con bootstrap cuando se utilizan los datatables */
+.link {
+  display: inline-block !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+  font-weight: 800 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+  -webkit-text-decoration-line: none !important;
+          text-decoration-line: none !important;
+}
+h5.tailwind {
   font-size: 1.875rem !important;
   line-height: 2.25rem !important;
   font-weight: 700 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 103 50 / var(--tw-text-opacity)) !important;
 }
-/* FIN CONFLICTOS CON BOOTSTRAP */
+span.tailwind {
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 103 50 / var(--tw-text-opacity)) !important;
+}
+/* fin Problemas con bootstrap cuando se utilizan los datatables */
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1295,6 +1319,10 @@ select {
 .hover\:bg-green-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(20 83 45 / var(--tw-bg-opacity));
+}
+.hover\:bg-blue-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
