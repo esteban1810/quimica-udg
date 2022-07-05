@@ -16,9 +16,8 @@ class FormularioController extends Controller
      */
     public function index()
     {
-        //
-        $datos['formularios']=Formulario::paginate(1);
-        return view('formulario.index',$datos);
+        $modulares = Formulario::all();
+        return view('formulario.index',['modulares'=>$modulares]);
     }
 
     /**

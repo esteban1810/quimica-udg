@@ -30,12 +30,44 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Alumno</th>
                         <th>Código</th>
-                        <th>Maestro</th>
-                        <th>Acciones</th>
+                        <th>PMs</th>
+                        <th>Proyecto</th>
+                        <th>Modalidad</th>
+                        
+                        <th class="w-32">Acciones</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach ($modulares as $modular)
+                    <tr>
+                        <td>{{$modular->id}}</td>
+                        <td>{{$modular->CodigoAlumno}}</td>
+                        <td>{{$modular->PMaEvaluar}}</td>
+                        <td>{{$modular->TituloTrabajo}}</td>
+                        <td>{{$modular->TipoModalidad}}</td>
+                        <td class="flex justify-around">
+                            <a class="link bg-yellow-500 hover:bg-yellow-700" href="{{url('/formulario/'.$modular->id.'/edit')}}">
+                                Editar
+                            </a>
+                            
+                            <form action="{{ url('/formulario/'.$modular->id) }}" method="post">
+                                @csrf
+                                <input 
+                                    class="link bg-red-500 hover:bg-red-700"
+                                    type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                                {{method_field('DELETE')}}
+                            </form>
+                            {{-- <a class="link bg-green-700 hover:bg-green-900" href="{{route('dashboard')}}">
+                                Ir a Catologo
+                            </a>
+                            <a class="link bg-blue-600 hover:bg-blue-900" href="{{route('formulario.create')}}">
+                                Llenar formulario
+                            </a> --}}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
