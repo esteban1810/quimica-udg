@@ -72,6 +72,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -80,6 +81,21 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
+    public function autorizar( $id)
+    {
+        $user = User::findOrFail($id);
+        $user->autorizado = 1;
+        $user->save();
+        return redirect()->route('users.index');
+    }
+
+    public function denegar( $id)
+    {
+        $user = User::findOrFail($id);
+        $user->autorizado = 0;
+        $user->save();
+        return redirect()->route('users.index');
+    }
     /**
      * Remove the specified resource from storage.
      *

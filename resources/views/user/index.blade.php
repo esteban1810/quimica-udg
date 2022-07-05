@@ -19,8 +19,8 @@
                     <td>{{$user->codigo}}</td>
                     <td class="flex">
                         @if ($user->tipo_usuario!='estudiante')
-                            <a href="{{route('users.show',$user->id)}}">Autorizar</a>
-                            <a href="{{route('users.show',$user->id)}}">Denegar</a>
+                            <a href="{{route('users.autorizar',$user->id)}}">Autorizar</a>
+                            <a href="{{route('users.denegar',$user->id)}}">Denegar</a>
                         @endif
                         <a href="{{route('users.show',$user->id)}}">Mostrar</a>
                         <a href="{{route('users.edit',$user->id)}}">Editar</a>
