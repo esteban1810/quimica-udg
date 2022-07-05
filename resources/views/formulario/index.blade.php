@@ -8,15 +8,13 @@
     @endpush
 
     
-
-
     <div class=" w-full h-[88vh] bg-background py-8">
-        <div class="w-[max(80rem,90%)] rounded-3xl p-8 bg-white m-auto">
+        <div class="w-[max(80rem,90%)] rounded-3xl p-8 bg-white m-auto">{{-- CARD PARA LA TABLA--}}
             
             <div class="flex justify-between mb-4">
                 <h2>Proyectos Modulares</h2>
 
-                <div>
+                <div>{{--OPCIONES DEL FORMULARIO--}}
                     <a class="link bg-green-700 hover:bg-green-900" href="{{route('dashboard')}}">
                         Ir a Catologo
                     </a>
@@ -58,12 +56,6 @@
                                     type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
                                 {{method_field('DELETE')}}
                             </form>
-                            {{-- <a class="link bg-green-700 hover:bg-green-900" href="{{route('dashboard')}}">
-                                Ir a Catologo
-                            </a>
-                            <a class="link bg-blue-600 hover:bg-blue-900" href="{{route('formulario.create')}}">
-                                Llenar formulario
-                            </a> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -72,6 +64,7 @@
         </div>
     </div>
 
+    {{-- SCRIPTS NECESARIOS PARA DATATABLE --}}
     @push('js')
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -86,4 +79,6 @@
             } );
         </script>
     @endpush
+    {{-- SCRIPTS NECESARIOS PARA DATATABLE --}}
+
 @endsection

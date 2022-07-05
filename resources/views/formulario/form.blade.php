@@ -8,16 +8,17 @@
     </ul>
 @endif
 
-<div class="w-[min(50rem,90%)] rounded-3xl p-8 bg-white m-auto">
-    <h3 class="text-2xl center mb-4">DATOS PERSONALES</h3>
 
-    <div class="md:columns-2">
-        <div class="mb-4">
+<div class="w-[min(50rem,90%)] rounded-3xl p-8 bg-white m-auto">{{--PARA PONER UN CARD--}}
+    <h3 class="text-2xl center mb-4">DATOS PERSONALES</h3>{{--PARA PONER UN TITULO AL CARD--}}
+
+    <div class="md:columns-2">{{--PARA DOS COLUMNAS--}}
+        <div class="mb-4">{{-- MARGEN PARA ABAJO--}}
             <label for="ApellidoPaternoAlumno">APELLIDO PATERNO</label><br>
             <input
-                class="rounded-input"
+                class="rounded-input" {{--ESTIILO PARA INPUT:TEXT--}}
                 type="text" name="ApellidoPaternoAlumno" id="ApellidoPaternoAlumno"
-                placeholder="Ingresa tu apellido paterno"
+                placeholder="Ingresa tu apellido paterno"{{-- MUY BREVE DESCRIPCION DEL CAMPO --}}
                 value="{{isset($formulario->ApellidoPaternoAlumno)?$formulario->ApellidoPaternoAlumno:old('ApellidoPaternoAlumno')}}" >
         </div>
         <div class="mb-4">
@@ -111,7 +112,7 @@
 
     <div class="mb-4">
         <label 
-            class="uppercase"
+            class="uppercase"{{--TITULO EN MAYUSCULAS--}}
             for="TituloTrabajo">Titulo de tu trabajo</label><br>
         <input 
             class="rounded-input"
@@ -233,8 +234,8 @@
 
 <div class="w-[min(50rem,90%)] rounded-3xl p-8 bg-white m-auto mt-8">
     <h3 class="text-2xl center mb-4">Por Congreso</h3>
-    <div class="md:flex">
-        <div class="mb-4 md:w-1/2">
+    <div class="md:flex">{{--OTRA FORMA DE PONER DOS COLUMNAS--}}
+        <div class="mb-4 md:w-1/2">{{--OTRA FORMA DE PONER DOS COLUMNAS--}}
             <label 
                 class="uppercase"
                 for="TipoCongreso">¿Qué tipo de Congreso fue?</label><br>
@@ -251,7 +252,7 @@
                 <label for="TipoCongreso3">Presentación de carteles en LQUI</label>
             </div>
         </div>
-        <div class="mb-4 md:w-1/2">
+        <div class="mb-4 md:w-1/2">{{--OTRA FORMA DE PONER DOS COLUMNAS--}}
             <label 
                 class="uppercase"
                 for="RecibioBeca">¿Recibiste algún tipo de beca?</label><br>
