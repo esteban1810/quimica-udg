@@ -18,7 +18,7 @@
                     <a class="link bg-green-700 hover:bg-green-900" href="{{route('dashboard')}}">
                         Ir a Catologo
                     </a>
-                    <a class="link bg-blue-600 hover:bg-blue-900" href="{{route('formulario.create')}}">
+                    <a class="link bg-blue-600 hover:bg-blue-900" href="{{route('modular.create')}}">
                         Llenar formulario
                     </a>
                 </div>
@@ -45,11 +45,13 @@
                         <td>{{$modular->TituloTrabajo}}</td>
                         <td>{{$modular->TipoModalidad}}</td>
                         <td class="flex justify-around">
-                            <a class="link bg-yellow-500 hover:bg-yellow-700" href="{{url('/formulario/'.$modular->id.'/edit')}}">
+                            <a class="link bg-yellow-500 hover:bg-yellow-700" href="{{url('/modular/'.$modular->id.'/edit')}}">
                                 Editar
                             </a>
-                            
-                            <form action="{{ url('/formulario/'.$modular->id) }}" method="post">
+                            <a class="link bg-yellow-500 hover:bg-yellow-700" href="{{url('/modular/'.$modular->id.'/show')}}">
+                                Mostrar
+                            </a>
+                            <form action="{{ url('/modular/'.$modular->id) }}" method="post">
                                 @csrf
                                 <input 
                                     class="link bg-red-500 hover:bg-red-700"
