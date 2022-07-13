@@ -127,9 +127,9 @@ class ModularController extends Controller
     public function show($id)
     {
         //
-        $formulario = Modular::findOrFail($id);
-
-        return view('modular.show',compact('modular'));
+        $modular = Modular::findOrFail($id);
+        $show_true = 1;
+        return view('modular.show',compact('modular'),['mostrar'=>$show_true]);
     }
 
     /**

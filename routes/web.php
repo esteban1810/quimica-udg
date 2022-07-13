@@ -39,8 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::resource('users',UserController::class);
-    Route::resource('formulario',FormularioController::class);
     Route::resource('modular',ModularController::class);
+    Route::get('modular/{model}/show',[ModularController::class,'show'])->name('modular.show');
+    
     Route::resource('fechas',FechasController::class);
 });
 

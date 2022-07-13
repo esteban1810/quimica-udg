@@ -55,7 +55,9 @@ class FechasController extends Controller
         // $datosFechas = request()->all();
         $datosFechas = request()->except('_token');
         Fechas::insert($datosFechas);
-        return response()->json($datosFechas);
+        return redirect('fechas')->with('mensaje','Formulario guardado');
+
+        // return response()->json($datosFechas);
     }
 
     /**
