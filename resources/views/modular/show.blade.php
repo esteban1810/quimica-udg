@@ -3,13 +3,10 @@
 @section('content')
 
   <div class=" w-full bg-background py-8">
-{{-- <form action="{{url('/modular/'.$modular->id)}}" method="post" enctype="multipart/form-data"> --}}
-    {{-- @csrf --}}
-    {{-- {{method_field('GET')}} --}}
-    <fieldset @if(isset($mostrar)&&$mostrar==1) disabled @endif>
+    <fieldset @if(isset($mostrar)&&$mostrar==1) disabled @endif> 
+      {{-- Etiqueta fieldset sirve para aplicar disabled a todo lo que este dentro --}}
     @include('modular.form')
     </fieldset>
-    {{-- </form> --}}
 </div>
 
 @endsection
