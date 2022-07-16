@@ -5,6 +5,7 @@ use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FechasController;
+use App\Http\Controllers\EjemploController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\FechasController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/guardar-registro',[EjemploController::class,'guardarRegistro']);
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -39,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users',UserController::class);
     Route::resource('formulario',FormularioController::class);
     Route::resource('fechas',FechasController::class);
+
 });
 
 require __DIR__.'/auth.php';
