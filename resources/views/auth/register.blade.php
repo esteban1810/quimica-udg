@@ -41,7 +41,39 @@
                     class="rounded-lg w-full border-solid border-2"
                     type="email" name="email" id="email" value="{{old('email')}}" required autofocus>
             </div>
-
+            {{-- Sexo Alumno --}}
+            <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
+                <label for="sexo">Sexo</label><br>
+                <input type="radio" name="sexo" value="Masculino" id="Masculino" @if(old('sexo')=='Masculino') checked @endif><label for="Masculino">Masculino</label>
+                <input type="radio" name="sexo" value="Femenino" id="Femenino" @if(old('sexo')=='Femenino') checked @endif><label for="Femenino">Femenino</label>
+                <input type="radio" name="sexo" value="Prefiero no decirlo" id="pnd" @if(old('sexo')=='Prefiero no decirlo') checked @endif><label for="pnd">Prefiero no decirlo</label>
+            </div>
+            {{-- Ciclo de ingreso --}}
+            <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
+                <label for="ciclo">Ciclo de ingreso</label><br>
+                <input
+                    placeholder="Ingresa Ciclo de Ingreso"
+                    class="rounded-lg w-full border-solid border-2"
+                    type="text" name="ciclo" id="ciclo" value="{{old('ciclo')}}"  required autofocus>
+            </div>
+            {{-- Datos de contacto telegram - telefono --}}
+           
+                <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
+                    <label
+                        for="telefono">Télefono</label><br>
+                    <input
+                        class="rounded-input"
+                        type="number" name="telefono" id="telefono"
+                    onKeyPress="if(this.value.length==10) return false;" 
+                    placeholder="Número télefonico" value="{{old('telefono')}}"  required autofocus>
+                </div>
+                <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
+                    <label for="telegram">Telegram</label><br>
+                    <input
+                        class="rounded-input"
+                        type="text" name="telegram" id="telegram" placeholder="p. ej: @MariaSanchez" value="{{old('telegram')}}" required autofocus>
+                </div>
+            
             <!-- Tipo de Usuario -->
             <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
                 <label for="tipo_usuario">Usuario</label><br>

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Formulario;
+use App\Models\Modular;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
-class FormularioController extends Controller
+class ModularController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class FormularioController extends Controller
      */
     public function index()
     {
-        $modulares = Formulario::all();
-        return view('formulario.index',['modulares'=>$modulares]);
+        //
+        $modulares = Modular::all();
+        return view('modular.index',['modulares'=>$modulares]);
     }
 
     /**
@@ -27,8 +28,7 @@ class FormularioController extends Controller
      */
     public function create()
     {
-        //
-        return view('formulario.create');
+        return view('modular.create');
     }
 
     /**
@@ -113,41 +113,42 @@ class FormularioController extends Controller
 
         }
 
-        Formulario::insert($datosFormulario);
+        Modular::insert($datosFormulario);
         // return response()->json($datosFormulario);
-        return redirect('formulario')->with('mensaje','Formulario guardado');
+        return redirect('modular')->with('mensaje','Formulario guardado');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Formulario  $formulario
+     * @param  \App\Models\Modular  $modular
      * @return \Illuminate\Http\Response
      */
-    public function show(Formulario $formulario)
+    public function show($id)
     {
         //
+        $modular = Modular::findOrFail($id);
+        return view('modular.show',compact('modular'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Formulario  $formulario
+     * @param  \App\Models\Modular  $modular
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $formulario = Formulario::findOrFail($id);
-
-        return view('formulario.edit',compact('formulario'));
+        $modular = Modular::findOrFail($id);
+        return view('modular.edit',compact('modular'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Formulario  $formulario
+     * @param  \App\Models\Modular  $modular
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
@@ -213,36 +214,35 @@ class FormularioController extends Controller
         $datosFormulario = request()->except('_token','director','isRegistrado','_method');
 
         if($request->hasFile('DocumentoPDFProyecto')){
-            $formulario = Formulario::findOrFail($id);
+            $formulario = Modular::findOrFail($id);
             Storage::delete('public/'.$formulario->DocumentoPDFProyecto);
             $datosFormulario['DocumentoPDFProyecto']=$request->file('DocumentoPDFProyecto')->store('uploads','public');
         }
 
-        Formulario::where('id','=',$id)->update($datosFormulario);
+        Modular::where('id','=',$id)->update($datosFormulario);
         
-        $formulario = Formulario::findOrFail($id);
+        $modular = Modular::findOrFail($id);
 
-        return view('formulario.edit',compact('formulario'));
+        return view('modular.edit',compact('modular'));
 
     }
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Formulario  $formulario
+     * @param  \App\Models\Modular  $modular
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        $formulario = Formulario::findOrFail($id);
+        $formulario = Modular::findOrFail($id);
 
         if(Storage::delete('public/'.$formulario->DocumentoPDFProyecto)){
-            Formulario::destroy($id);
+            Modular::destroy($id);
         }
 
         // return redirect('formulario');
-        return redirect('formulario')->with('mensaje','Formulario borrado');
+        return redirect('modular')->with('mensaje','Formulario borrado');
 
     }
 }

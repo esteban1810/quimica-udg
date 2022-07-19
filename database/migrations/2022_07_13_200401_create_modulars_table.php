@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormulariosTable extends Migration
+class CreateModularsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFormulariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('formularios', function (Blueprint $table) {
+        Schema::create('modulars', function (Blueprint $table) {
             $table->id();
             $table->string('CorreoAlumno');
             $table->string('ApellidoPaternoAlumno');
@@ -51,6 +51,6 @@ class CreateFormulariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formularios');
+        Schema::dropIfExists('modulars');
     }
 }

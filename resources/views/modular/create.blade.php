@@ -3,15 +3,12 @@
 @section('content')
 
   <div class=" w-full bg-background py-8">
-      <form action="{{ url('/formulario') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/modular') }}" method="post" enctype="multipart/form-data">
       @csrf
-      @include('formulario.form')
+      @include('modular.form')
       </form>
     </div>
   </div>
 
 @endsection
-
-
-
 

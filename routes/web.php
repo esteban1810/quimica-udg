@@ -5,6 +5,8 @@ use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FechasController;
+use App\Http\Controllers\ModularController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::resource('users',UserController::class);
-    Route::resource('formulario',FormularioController::class);
+    Route::resource('modular',ModularController::class);
+    Route::get('modular/{model}/show',[ModularController::class,'show'])->name('modular.show');
+    
     Route::resource('fechas',FechasController::class);
 
 });
