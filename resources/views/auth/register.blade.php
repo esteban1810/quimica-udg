@@ -54,7 +54,7 @@
                 <input
                     placeholder="Ingresa Ciclo de Ingreso"
                     class="rounded-lg w-full border-solid border-2"
-                    type="text" name="ciclo" id="ciclo" value="{{old('ciclo')}}" autofocus>
+                    type="text" name="ciclo" id="ciclo" value="{{old('ciclo')}}"  required autofocus>
             </div>
             {{-- Datos de contacto telegram - telefono --}}
            
@@ -65,13 +65,13 @@
                         class="rounded-input"
                         type="number" name="telefono" id="telefono"
                     onKeyPress="if(this.value.length==10) return false;" 
-                    placeholder="Número télefonico" value="{{old('telefono')}}">
+                    placeholder="Número télefonico" value="{{old('telefono')}}"  required autofocus>
                 </div>
                 <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
                     <label for="telegram">Telegram</label><br>
                     <input
                         class="rounded-input"
-                        type="text" name="telegram" id="telegram" placeholder="p. ej: @MariaSanchez" value="{{old('telegram')}}">
+                        type="text" name="telegram" id="telegram" placeholder="p. ej: @MariaSanchez" value="{{old('telegram')}}" required autofocus>
                 </div>
             
             <!-- Tipo de Usuario -->

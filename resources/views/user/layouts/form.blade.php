@@ -6,28 +6,28 @@
             <div class="mt-4 text-normal md:px-3 w-full" >
                 <label for="name">Nombre(s):</label><br>
                 <input class="rounded-lg w-full border-solid border-2" type="text" name="name" id="name" placeholder="Nombre(s)"
-                value="{{old('name') ?? $model->name}}"
+                value="{{old('name') ?? $model->name}}" required
                 @if($accion=='show') readonly @endif>
             </div>
 
             <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
                 <label for="apellido_paterno">Apellido Paterno</label><br>
                 <input class="rounded-lg w-full border-solid border-2" type="text" name="apellido_paterno" id="apellido_paterno" placeholder="Apellido Paterno"
-                value="{{old('apellido_paterno') ?? $model->apellido_paterno}}"
+                value="{{old('apellido_paterno') ?? $model->apellido_paterno}}" required
                 @if($accion=='show') readonly @endif>
             </div>
 
             <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
                 <label for="apellido_materno">Apellido Materno</label><br>
                 <input class="rounded-lg w-full border-solid border-2" type="text" name="apellido_materno" id="apellido_materno" placeholder="Apellido Materno"
-                value="{{old('apellido_materno') ?? $model->apellido_materno}}"
+                value="{{old('apellido_materno') ?? $model->apellido_materno}}" required
                 @if($accion=='show') readonly @endif>
             </div>
         
             <div class="mt-4 text-normal md:px-3 w-full">
             <label for="email">Correo:</label><br>
             <input class="rounded-lg w-full border-solid border-2" type="email" name="email" id="email" placeholder="Ingresa tu correo"
-            value="{{old('email') ?? $model->email}}"
+            value="{{old('email') ?? $model->email}}" required
             @if($accion=='show') readonly @endif>
             </div>
 

@@ -128,8 +128,7 @@ class ModularController extends Controller
     {
         //
         $modular = Modular::findOrFail($id);
-        $show_true = 1;
-        return view('modular.show',compact('modular'),['mostrar'=>$show_true]);
+        return view('modular.show',compact('modular'));
     }
 
     /**
