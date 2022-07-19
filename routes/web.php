@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard',function(){return view('dashboard');})->name('dashboard');
+    Route::get('/inicio',function(){return view('dashboard/regular-user');})->name('inicio');
 
     
     // RUBRICAS ROUTES
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users',UserController::class);
     Route::resource('formulario',FormularioController::class);
     Route::resource('fechas',FechasController::class);
+
 });
 
 require __DIR__.'/auth.php';
