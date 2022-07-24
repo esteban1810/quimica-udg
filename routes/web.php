@@ -6,6 +6,8 @@ use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FechasController;
 use App\Http\Controllers\EjemploController;
+use App\Http\Controllers\OrdenVisitaController;
+use App\Http\Controllers\ImagenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,8 @@ Route::get('/', function () {
 });
 
 Route::post('/guardar-registro',[EjemploController::class,'guardarRegistro']);
+Route::post('/guardar-ov',[OrdenVisitaController::class,'guardarRegistro']);
+Route::post('/guardar-imagen',[ImagenController::class,'guardarRegistro']);
 
 
 Route::group(['middleware' => 'auth'], function () {

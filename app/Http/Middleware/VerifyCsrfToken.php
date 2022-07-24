@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/guardar-registro',
-        '/guardar-ov'
+        '/guardar-ov',
+        '/guardar-imagen',
     ];
 }
