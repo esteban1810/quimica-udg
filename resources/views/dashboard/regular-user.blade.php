@@ -18,7 +18,7 @@
             <div class="flex justify-end w-full">
                 <a 
                     class="bg-primary text-white p-2 inline-block font-bold rounded-xl"
-                    href="{{route('formulario.index')}}">SABER MÁS</a>
+                    href="{{route('modular.index')}}">SABER MÁS</a>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
             <div class="flex justify-end w-full">
                 <a 
                     class="bg-primary text-white p-2 inline-block font-bold rounded-xl"
-                    href="{{route('formulario.index')}}">SABER MÁS</a>
+                    href="{{route('modular.index')}}">SABER MÁS</a>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
             <div class="flex justify-end w-full">
                 <a 
                     class="bg-primary text-white p-2 inline-block font-bold rounded-xl"
-                    href="{{route('formulario.index')}}">SABER MÁS</a>
+                    href="{{route('modular.index')}}">SABER MÁS</a>
             </div>
         </div>
     </div>
@@ -76,7 +76,7 @@
             <div class="flex justify-end w-full">
                 <a 
                     class="bg-primary text-white p-2 inline-block font-bold rounded-xl"
-                    href="{{route('formulario.index')}}">HACERLO AHORA</a>
+                    href="{{route('modular.index')}}">HACERLO AHORA</a>
             </div>
         </div>
     </div>
@@ -104,7 +104,7 @@
 </div>
 
         {{-- <ul>
-            <li><a href="{{route('formulario.index')}}">Proyecto Modular</a></li>
+            <li><a href="{{route('modular.index')}}">Proyecto Modular</a></li>
             <li><a href="{{route('fechas.index')}}">Fechas</a></li>
             <li><a href="{{route('rubrica.index')}}">Rubricas</a></li>
             <li><a href="{{route('users.index')}}">Users</a></li>
