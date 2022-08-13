@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Modular;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,9 @@ class ModularController extends Controller
      */
     public function create()
     {
-        return view('modular.create');
+        $user = User::findOrFail(auth()->id());
+        
+        return view('modular.create',compact('user'));
     }
 
     /**

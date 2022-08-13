@@ -76,7 +76,9 @@
             <div class="flex justify-end w-full">
                 <a 
                     class="bg-primary text-white p-2 inline-block font-bold rounded-xl"
-                    href="{{route('modular.index')}}">HACERLO AHORA</a>
+                    {{-- href="{{route('modular.index')}}">HACERLO AHORA</a> --}}
+                    href="{{route('/modular.create')}}">HACERLO AHORA</a>
+
             </div>
         </div>
     </div>

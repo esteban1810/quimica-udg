@@ -42,7 +42,7 @@
                     type="email" name="email" id="email" value="{{old('email')}}" required autofocus>
             </div>
             {{-- Sexo Alumno --}}
-            <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
+            <div class="mt-4 text-normal md:px-3 w-full">
                 <label for="sexo">Sexo</label><br>
                 <input type="radio" name="sexo" value="Masculino" id="Masculino" @if(old('sexo')=='Masculino') checked @endif><label for="Masculino">Masculino</label>
                 <input type="radio" name="sexo" value="Femenino" id="Femenino" @if(old('sexo')=='Femenino') checked @endif><label for="Femenino">Femenino</label>
@@ -50,11 +50,28 @@
             </div>
             {{-- Ciclo de ingreso --}}
             <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
-                <label for="ciclo">Ciclo de ingreso</label><br>
-                <input
+                
+                {{-- {{date('Y')}} --}}
+                  
+                <label for="ingreso">Año de ingreso</label><br>  
+                <select name="ingreso" id="ingreso" class="rounded-lg w-full border-solid border-2"
+                value="{{old('ingreso')}}"  required autofocus></select> 
+                {{-- <input
                     placeholder="Ingresa Ciclo de Ingreso"
                     class="rounded-lg w-full border-solid border-2"
-                    type="text" name="ciclo" id="ciclo" value="{{old('ciclo')}}"  required autofocus>
+                    type="text" name="ciclo" id="ciclo" value="{{old('ciclo')}}"  required autofocus> --}}
+            </div>
+            <div class="mt-4 text-normal md:px-3 w-full md:w-1/2">
+                <label for="calendario">Calendario</label><br>
+                <select name="calendario" id="calendario" class="rounded-lg w-full border-solid border-2"
+                value="{{old('calendario')}}"  required autofocus>
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </select> 
+                {{-- <input
+                    placeholder="Ingresa Ciclo de Ingreso"
+                    class="rounded-lg w-full border-solid border-2"
+                    type="text" name="ciclo" id="ciclo" value="{{old('ciclo')}}"  required autofocus> --}}
             </div>
             {{-- Datos de contacto telegram - telefono --}}
            
@@ -160,7 +177,6 @@
             <button class="w-full mt-6 p-2 bg-primary hover:bg-green-900 text-white font-extrabold rounded-lg">
                 {{ __('ACEPTAR') }}
             </button>
-
             {{-- <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hovertext-gray-900" href="{{ route('login') }}">
                     {{ __('¿Ya te has registrado?') }}
@@ -169,4 +185,16 @@
         </form>
     </div>
 </div>
+<script>
+    select = document.getElementById("ingreso");
+    var today = new Date();
+
+var anio = today.getFullYear();
+for(i = 1980; i <= anio; i++){
+option = document.createElement("option");
+option.value = i;
+option.text = i;
+select.appendChild(option);
+}
+</script>   
 @endsection

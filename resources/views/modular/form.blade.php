@@ -11,7 +11,11 @@
 
 <div class="w-[min(50rem,90%)] rounded-3xl p-8 bg-white m-auto">{{--PARA PONER UN CARD--}}
     <h3 class="text-2xl center mb-4">DATOS PERSONALES</h3>{{--PARA PONER UN TITULO AL CARD--}}
-
+    @if(isset($user->name))
+    <input type="hidden" name="user_id" value="{{$user->id}}">
+    @endif
+    
+    <fieldset @if(isset($user->name)) style="pointer-events: none;" @endif>
     <div class="md:columns-2">{{--PARA DOS COLUMNAS--}}
         <div class="mb-4">{{-- MARGEN PARA ABAJO--}}
             <label for="ApellidoPaternoAlumno">APELLIDO PATERNO</label><br>
@@ -19,7 +23,12 @@
                 class="rounded-input" {{--ESTIILO PARA INPUT:TEXT--}}
                 type="text" name="ApellidoPaternoAlumno" id="ApellidoPaternoAlumno"
                 placeholder="Ingresa tu apellido paterno"{{-- MUY BREVE DESCRIPCION DEL CAMPO --}}
-                value="{{isset($modular->ApellidoPaternoAlumno)?$modular->ApellidoPaternoAlumno:old('ApellidoPaternoAlumno')}}" >
+                @if (isset($modular->ApellidoPaternoAlumno))
+                value="{{isset($modular->ApellidoPaternoAlumno)?$modular->ApellidoPaternoAlumno:old('ApellidoPaternoAlumno')}}" 
+                @else
+                value="{{$user->apellido_paterno}}"
+                @endif
+                >
         </div>
         <div class="mb-4">
             <label for="ApellidoMaternoAlumno">APELLIDO MATERNO</label><br>
@@ -29,7 +38,12 @@
                 name="ApellidoMaternoAlumno"
                 id="ApellidoMaternoAlumno"
                 placeholder="Ingresa tu apellido materno"
-                value="{{isset($modular->ApellidoMaternoAlumno)?$modular->ApellidoMaternoAlumno:old('ApellidoMaternoAlumno')}}" >
+                @if (isset($modular->ApellidoMaternoAlumno))
+                value="{{isset($modular->ApellidoMaternoAlumno)?$modular->ApellidoMaternoAlumno:old('ApellidoMaternoAlumno')}}" 
+                @else
+                value="{{$user->apellido_materno}}" 
+                @endif
+                >
         </div>
     </div>
 
@@ -41,14 +55,45 @@
             name="NombreAlumno"
             id="NombreAlumno"
             placeholder="Ingresa tu nombre completo"
-            value="{{isset($modular->NombreAlumno)?$modular->NombreAlumno:old('NombreAlumno')}}" >
+            @if (isset($modular->NombreAlumno))
+            value="{{isset($modular->NombreAlumno)?$modular->NombreAlumno:old('NombreAlumno')}}"   
+            @else
+            value="{{$user->name}}" 
+            @endif
+             >
     </div>
 
     <div class="mb-4">
+        {{-- <fieldset @if(isset($user->name)) style="pointer-events: none;" @endif> --}}
         <label for="GeneroAlumno">SELECCIONE SU SEXO:</label><br>
-        <input type="radio" name="GeneroAlumno" value="Masculino" id="Masculino" {{isset($modular->GeneroAlumno)&&$modular->GeneroAlumno=='Masculino'?'checked':''}}@if(old('GeneroAlumno')=='Masculino') checked @endif><label for="Masculino">Masculino</label>
-        <input type="radio" name="GeneroAlumno" value="Femenino" id="Femenino" {{isset($modular->GeneroAlumno)&&$modular->GeneroAlumno=='Femenino'?'checked':''}}@if(old('GeneroAlumno')=='Femenino') checked @endif><label for="Femenino">Femenino</label>
-        <input type="radio" name="GeneroAlumno" value="Prefiero no decirlo" id="pnd" {{isset($modular->GeneroAlumno)&&$modular->GeneroAlumno=='Prefiero no decirlo'?'checked':''}}@if(old('GeneroAlumno')=='Prefiero no decirlo') checked @endif><label for="pnd">Prefiero no decirlo</label>
+        <input type="radio" name="GeneroAlumno" value="Masculino" id="Masculino" 
+        @if (isset($modular->GeneroAlumno))
+        {{isset($modular->GeneroAlumno)&&$modular->GeneroAlumno=='Masculino'?'checked':''}}@if(old('GeneroAlumno')=='Masculino') checked @endif
+        @else
+        @if ($user->sexo=='Masculino')
+            checked 
+        @endif
+        @endif        
+        ><label for="Masculino">Masculino</label>
+        <input type="radio" name="GeneroAlumno" value="Femenino" id="Femenino" 
+        @if (isset($modular->GeneroAlumno))
+        {{isset($modular->GeneroAlumno)&&$modular->GeneroAlumno=='Femenino'?'checked':''}}@if(old('GeneroAlumno')=='Femenino') checked @endif
+        @else
+        @if ($user->sexo=='Femenino')
+            checked 
+        @endif
+        @endif  
+        ><label for="Femenino">Femenino</label>
+        <input type="radio" name="GeneroAlumno" value="Prefiero no decirlo" id="pnd" 
+        @if (isset($modular->GeneroAlumno))
+        {{isset($modular->GeneroAlumno)&&$modular->GeneroAlumno=='Prefiero no decirlo'?'checked':''}}@if(old('GeneroAlumno')=='Prefiero no decirlo') checked @endif
+        @else
+        @if ($user->sexo=='Prefiero no decirlo')
+            checked 
+        @endif
+        @endif  
+        ><label for="pnd">Prefiero no decirlo</label>
+    {{-- </fieldset> --}}
     </div>
 
     <div class="md:columns-2">
@@ -56,7 +101,13 @@
             <label for="CorreoAlumno">CORREO</label><br>
             <input
                 class="rounded-input"
-                type="text" name="CorreoAlumno" id="CorreoAlumno" placeholder="Ingresa tu correo" value="{{isset($modular->CorreoAlumno)?$modular->CorreoAlumno:old('CorreoAlumno')}}" >
+                type="text" name="CorreoAlumno" id="CorreoAlumno" placeholder="Ingresa tu correo" 
+                @if (isset($modular->CorreoAlumno))
+                value="{{isset($modular->CorreoAlumno)?$modular->CorreoAlumno:old('CorreoAlumno')}}"
+                @else
+                value="{{$user->email}}" 
+                @endif
+                 >
         </div>
         <div class="mb-4">
             <label for="CodigoAlumno">CÓDIGO</label><br>
@@ -67,7 +118,13 @@
                 id="CodigoAlumno"
                 onKeyPress="if(this.value.length==9) return false"
                 placeholder="Código de UdeG"
-                value="{{isset($modular->CodigoAlumno)?$modular->CodigoAlumno:old('CodigoAlumno')}}">
+                @if (isset($modular->CodigoAlumno))
+                value="{{isset($modular->CodigoAlumno)?$modular->CodigoAlumno:old('CodigoAlumno')}}"
+                @else
+                value="{{$user->codigo}}" 
+                @endif
+                 >
+                
         </div>
 
 
@@ -81,30 +138,144 @@
                 class="rounded-input"
                 type="number" name="CelularAlumno" id="CelularAlumno"
             onKeyPress="if(this.value.length==10) return false;" 
-            placeholder="Número télefonico" value="{{isset($modular->CelularAlumno)?$modular->CelularAlumno:old('CelularAlumno')}}">
+            placeholder="Número télefonico" 
+            @if (isset($modular->CelularAlumno))
+            value="{{isset($modular->CelularAlumno)?$modular->CelularAlumno:old('CelularAlumno')}}"
+            @else
+            value="{{$user->telefono}}" 
+            @endif
+             >
+            
         </div>
         <div class="mb-4">
             <label for="TelegramAlumno">TELEGRAM</label><br>
             <input
                 class="rounded-input"
-                type="text" name="TelegramAlumno" id="TelegramAlumno" placeholder="p. ej: @MariaSanchez" value="{{isset($modular->TelegramAlumno)?$modular->TelegramAlumno:old('TelegramAlumno')}}">
+                type="text" name="TelegramAlumno" id="TelegramAlumno" placeholder="p. ej: @MariaSanchez" 
+                @if (isset($modular->TelegramAlumno))
+                value="{{isset($modular->TelegramAlumno)?$modular->TelegramAlumno:old('TelegramAlumno')}}"
+            @else
+            value="{{$user->telegram}}" 
+            @endif
+               >
         </div>
     </div>
 
     <div class="mb-4">
+        @if (isset($user->ingreso))
+        <?php
+        $semestre = ((date('Y')-$user->ingreso+1)*2);
+        if($user->calendario=='B'){
+            $semestre--;
+        }
+        if(date('m')<6){
+            $semestre--;
+        }
+        ?>
+        @endif  
         <label for="SemestreAlumno">INDICA EL SEMESTRE QUE ESTAS CURSANDO</label><br>
-        <input type="radio" name="SemestreAlumno" value="6to" id="6to" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='6to'?'checked':''}}@if(old('SemestreAlumno')=='6to') checked @endif><label for="6to">6to</label>
-        <input type="radio" name="SemestreAlumno" value="7mo" id="7mo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='7mo'?'checked':''}}@if(old('SemestreAlumno')=='7mo') checked @endif><label for="7mo">7mo</label>
-        <input type="radio" name="SemestreAlumno" value="8vo" id="8vo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='8vo'?'checked':''}}@if(old('SemestreAlumno')=='8vo') checked @endif><label for="8vo">8vo</label>
-        <input type="radio" name="SemestreAlumno" value="9no" id="9no" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='9no'?'checked':''}}@if(old('SemestreAlumno')=='9no') checked @endif><label for="9no">9no</label>
-        <input type="radio" name="SemestreAlumno" value="10mo" id="10mo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='10mo'?'checked':''}}@if(old('SemestreAlumno')=='10mo') checked @endif><label for="10mo">10mo</label>
-        <input type="radio" name="SemestreAlumno" value="11vo" id="11vo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='11vo'?'checked':''}}@if(old('SemestreAlumno')=='11vo') checked @endif><label for="11vo">11vo</label>
-        <input type="radio" name="SemestreAlumno" value="12vo" id="12vo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='12vo'?'checked':''}}@if(old('SemestreAlumno')=='12vo') checked @endif><label for="12vo">12vo</label>
-        <input type="radio" name="SemestreAlumno" value="13vo" id="13vo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='13vo'?'checked':''}}@if(old('SemestreAlumno')=='13vo') checked @endif><label for="13vo">13vo</label>
-        <input type="radio" name="SemestreAlumno" value="14vo" id="14vo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='14vo'?'checked':''}}@if(old('SemestreAlumno')=='14vo') checked @endif><label for="14vo">14vo</label>
-        <input type="radio" name="SemestreAlumno" value="15vo" id="15vo" {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='15vo'?'checked':''}}@if(old('SemestreAlumno')=='15vo') checked @endif><label for="15vo">15vo</label>
+        <input type="radio" name="SemestreAlumno" value="6to" id="6to" 
+        @if(isset($user->ingreso))
+            @if($semestre==6)
+                checked
+            @endif
+        @else
+            {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='6to'?'checked':''}}@if(old('SemestreAlumno')=='6to') checked @endif
+        @endif
+        ><label for="6to">6to</label>
+        <input type="radio" name="SemestreAlumno" value="7mo" id="7mo"
+        @if(isset($user->ingreso))
+        @if($semestre==7)
+            checked
+        @endif
+    @else
+    {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='7mo'?'checked':''}}@if(old('SemestreAlumno')=='7mo') checked @endif
+    @endif
+
+        ><label for="7mo">7mo</label>
+        <input type="radio" name="SemestreAlumno" value="8vo" id="8vo"
+@if(isset($user->ingreso))
+            @if($semestre==8)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='8vo'?'checked':''}}@if(old('SemestreAlumno')=='8vo') checked @endif
+        @endif
+
+        ><label for="8vo">8vo</label>
+        <input type="radio" name="SemestreAlumno" value="9no" id="9no"
+@if(isset($user->ingreso))
+            @if($semestre==9)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='9no'?'checked':''}}@if(old('SemestreAlumno')=='9no') checked @endif
+        @endif
+
+        ><label for="9no">9no</label>
+        <input type="radio" name="SemestreAlumno" value="10mo" id="10mo"
+@if(isset($user->ingreso))
+            @if($semestre==10)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='10mo'?'checked':''}}@if(old('SemestreAlumno')=='10mo') checked @endif
+        @endif
+
+        ><label for="10mo">10mo</label>
+        <input type="radio" name="SemestreAlumno" value="11vo" id="11vo"
+@if(isset($user->ingreso))
+            @if($semestre==11)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='11vo'?'checked':''}}@if(old('SemestreAlumno')=='11vo') checked @endif
+        @endif
+
+        ><label for="11vo">11vo</label>
+        <input type="radio" name="SemestreAlumno" value="12vo" id="12vo"
+@if(isset($user->ingreso))
+            @if($semestre==12)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='12vo'?'checked':''}}@if(old('SemestreAlumno')=='12vo') checked @endif
+        @endif
+
+        ><label for="12vo">12vo</label>
+        <input type="radio" name="SemestreAlumno" value="13vo" id="13vo"
+@if(isset($user->ingreso))
+            @if($semestre==13)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='13vo'?'checked':''}}@if(old('SemestreAlumno')=='13vo') checked @endif
+        @endif
+        ><label for="13vo">13vo</label>
+        <input type="radio" name="SemestreAlumno" value="14vo" id="14vo"
+@if(isset($user->ingreso))
+            @if($semestre==14)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='14vo'?'checked':''}}@if(old('SemestreAlumno')=='14vo') checked @endif
+        @endif
+
+        ><label for="14vo">14vo</label>
+        <input type="radio" name="SemestreAlumno" value="15vo" id="15vo"
+@if(isset($user->ingreso))
+            @if($semestre>=15)
+                checked
+            @endif
+        @else
+        {{isset($modular->SemestreAlumno)&&$modular->SemestreAlumno=='15vo'?'checked':''}}@if(old('SemestreAlumno')=='15vo') checked @endif
+        @endif
+
+        ><label for="15vo">15vo</label>
     </div>
 </div>
+</fieldset>
+
 
 
 <div class="w-[min(50rem,90%)] rounded-3xl p-8 bg-white m-auto mt-8">

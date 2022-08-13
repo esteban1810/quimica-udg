@@ -24,7 +24,8 @@ class User extends Authenticatable
         'sexo',
         'telefono',
         'telegram',
-        'ciclo',
+        'ingreso',
+        'calendario',
         'email',
         'tipo_usuario',
         'codigo',
@@ -52,4 +53,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function modular(){
+        //$modular = Modular::where('user_id',$this->id)-first();
+        //return $modular;
+        return $this->hasOne('App\Models\Modular');
+    }
 }

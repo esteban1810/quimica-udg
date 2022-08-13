@@ -40,6 +40,10 @@ class CreateModularsTable extends Migration
             $table->string('DocumentoEntregaras')->nullable();
             $table->string('CasoNoDirector')->nullable();
             $table->string('DocumentoPDFProyecto');
+            //Mismo tipo de dato que en tabla users, llave de usuarios
+            $table->unsignedBigInteger('user_id')->unique();
+            //Referencia a que usara llaves foraneas respecto a users id
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

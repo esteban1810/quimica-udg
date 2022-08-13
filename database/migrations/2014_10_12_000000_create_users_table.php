@@ -21,7 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('sexo')->nullable();
             $table->string('telefono')->nullable();
             $table->string('telegram')->nullable();
-            $table->string('ciclo')->nullable();
+            $table->string('ingreso')->nullable();
+            $table->string('calendario')->nullable();
             $table->string('estatus',15)->nullable();
             $table->string('email')->unique();
             $table->string('tipo_usuario',20)->nullable();
