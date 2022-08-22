@@ -39,6 +39,8 @@ class CreateModularsTable extends Migration
             $table->string('ModalidadTitulacion')->nullable();
             $table->string('DocumentoEntregaras')->nullable();
             $table->string('CasoNoDirector')->nullable();
+            $table->string('ProfesorAsignado')->nullable();
+            $table->string('CoordinadorAsignado')->nullable();
             $table->string('DocumentoPDFProyecto');
             //Mismo tipo de dato que en tabla users, llave de usuarios
             $table->unsignedBigInteger('user_id')->unique();

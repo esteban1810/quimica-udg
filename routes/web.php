@@ -42,6 +42,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users',UserController::class);
     Route::resource('modular',ModularController::class);
     Route::get('modular/{model}/show',[ModularController::class,'show'])->name('modular.show');
+    Route::post('/modular/actualizar',[ModularController::class,'actualizar'])->name('modular.actualizar');
+    // Route::post('/modular/actualizar','ModularController@actualizar');
+
     
     Route::resource('fechas',FechasController::class);
 

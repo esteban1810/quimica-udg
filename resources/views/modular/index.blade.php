@@ -23,7 +23,7 @@
                     </a>
                 </div>
             </div>
-
+            @csrf
             <table id="example" class="table table-striped"  style="width:100%">
                 <thead>
                     <tr>
@@ -31,7 +31,8 @@
                         <th>Código</th>
                         <th>PMs</th>
                         <th>Proyecto</th>
-                        <th>Modalidad</th>
+                        <th>Profesor</th>
+                        <th>Coordinador</th>
                         
                         <th class="w-32">Acciones</th>
                     </tr>
@@ -39,11 +40,47 @@
                 <tbody>
                     @foreach ($modulares as $modular)
                     <tr>
-                        <td>{{$modular->id}}</td>
+                        <td>
+                            <input type="hidden" name="id_edit" value='{{$modular->id}}'>
+                            @switch($modular->TipoModalidad)
+                            @case('Examen Oral')
+                                EO-{{$modular->id}}
+                                @break
+                            @case('Asistencia a congreso')
+                                AC-{{$modular->id}}
+                                @break
+                            @case('Titulación')
+                                T-{{$modular->id}}
+                                @break
+                            @default
+                                
+                            @endswitch
+                            
+                        </td>
                         <td>{{$modular->CodigoAlumno}}</td>
                         <td>{{$modular->PMaEvaluar}}</td>
                         <td>{{$modular->TituloTrabajo}}</td>
-                        <td>{{$modular->TipoModalidad}}</td>
+                        <td>
+                            <select name="profesor" id="profesor">
+                                <option value="default">Seleccione profesor</option>
+                                @foreach($profesores as $profesor)
+                                    <option value='{{$profesor->name.' '.$profesor->apellido_paterno}}' 
+                                    @if($modular->ProfesorAsignado==$profesor->name.' '.$profesor->apellido_paterno) selected @endif
+                                    >{{$profesor->name.' '.$profesor->apellido_paterno}}</option>                                    
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
+                            <select name="coordinador" id="coordinador">
+                                <option value="default">Seleccione coordinador</option>
+                                @foreach($coordinadores as $coordinador)
+                                    <option value='{{$coordinador->name.' '.$coordinador->apellido_paterno}}'
+                                        @if($modular->CoordinadorAsignado==$coordinador->name.' '.$coordinador->apellido_paterno) selected @endif    
+                                    >{{$coordinador->name.' '.$coordinador->apellido_paterno}}</option>
+                                    
+                                @endforeach
+                            </select>
+                        </td>
                         <td class="flex justify-around">
                             <a class="link bg-yellow-500 hover:bg-yellow-700" href="{{url('/modular/'.$modular->id.'/edit')}}">
                                 Editar
@@ -78,7 +115,32 @@
                 $('#example').DataTable( {
                     select: true
                 } );
+
+                
             } );
+            document.getElementById("profesor").onchange = function() {myFunction()};
+            document.getElementById("coordinador").onchange = function() {myFunction()};
+
+
+            function myFunction() {
+                    var CoordinadorAsignado2 = $('[name="coordinador"]').val();
+                    var ProfesorAsignado2 = $('[name="profesor"]').val();
+                    alert(CoordinadorAsignado2)
+                $.ajax({
+                    url: "/modular/actualizar",
+                    method: 'POST',
+                    data: {
+                        id: $('input[name="id_edit"]').val(),                        
+                        ProfesorAsignado: ProfesorAsignado2,
+                        CoordinadorAsignado: CoordinadorAsignado2,
+                        _token: $('input[name="_token"]').val()
+                    }}).done(function(res) {
+                        alert(res);
+                    });
+                }
+                    
+                
+            
         </script>
     @endpush
     {{-- SCRIPTS NECESARIOS PARA DATATABLE --}}

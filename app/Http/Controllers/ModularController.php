@@ -19,9 +19,17 @@ class ModularController extends Controller
     {
         //
         $modulares = Modular::all();
-        return view('modular.index',['modulares'=>$modulares]);
+        $profesores = User::where("tipo_usuario","=","profesor")->get();
+        $coordinadores = User::where("tipo_usuario","=","coordinador")->get();
+        // $profesores = User::all();
+        return view('modular.index',['modulares'=>$modulares,'profesores'=>$profesores,'coordinadores'=>$coordinadores]);
     }
 
+    public function actualizar(Request $request)
+    {
+        Modular::where('id','=',$request->id)->update(['ProfesorAsignado'=>$request['ProfesorAsignado'],'CoordinadorAsignado'=>$request['CoordinadorAsignado']]);
+        // return back();
+    } 
     /**
      * Show the form for creating a new resource.
      *
